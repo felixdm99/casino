@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Slot Machine</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
       background: #111;
@@ -10,30 +11,37 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      height: 100vh;
+      min-height: 100vh;
       font-family: sans-serif;
+      margin: 0;
+      padding: 20px;
+      box-sizing: border-box;
     }
 
     .slot-container {
       display: flex;
-      gap: 20px;
-      padding: 30px;
+      gap: 5vw;
+      padding: 5vw;
       background: #222;
       border: 5px solid gold;
       border-radius: 20px;
       margin-bottom: 20px;
       animation: cambiarColorBorde 2s linear infinite;
+      flex-wrap: wrap;
     }
 
     .slot {
-      width: 80px;
-      height: 80px;
+      width: 18vw;
+      max-width: 100px;
+      height: 18vw;
+      max-height: 100px;
       background: white;
       border-radius: 10px;
       display: flex;
       justify-content: center;
       align-items: center;
-      font-size: 50px;
+      font-size: 8vw;
+      max-font-size: 50px;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
       border: 3px solid red;
       animation: cambiarColorBorde 2s linear infinite;
@@ -45,8 +53,10 @@
       align-items: center;
       border: 3px solid red;
       border-radius: 10px;
-      padding: 10px;
+      padding: 15px;
       animation: cambiarColorBorde 2s linear infinite;
+      text-align: center;
+      max-width: 90%;
     }
 
     .link-box a {
@@ -54,7 +64,7 @@
       color: gold;
       text-decoration: none;
       font-weight: bold;
-      font-size: 18px;
+      font-size: 1.2em;
     }
 
     @keyframes cambiarColorBorde {
@@ -63,6 +73,18 @@
       50%  { border-color: yellow; }
       75%  { border-color: green; }
       100% { border-color: red; }
+    }
+
+    @media (max-width: 480px) {
+      .slot {
+        width: 60px;
+        height: 60px;
+        font-size: 30px;
+      }
+
+      .link-box a {
+        font-size: 1em;
+      }
     }
   </style>
 </head>
@@ -85,8 +107,7 @@
     const slot3 = document.getElementById('slot3');
 
     function obtenerSimboloAleatorio() {
-      const indice = Math.floor(Math.random() * simbolos.length);
-      return simbolos[indice];
+      return simbolos[Math.floor(Math.random() * simbolos.length)];
     }
 
     function girarSlotsAutomatico() {
@@ -116,4 +137,5 @@
   </script>
 </body>
 </html>
+
 
